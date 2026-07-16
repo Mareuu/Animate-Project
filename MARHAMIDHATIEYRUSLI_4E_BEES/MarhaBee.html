@@ -1,50 +1,50 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	<head>
-		<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-		<title>MarhaBee</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<style type="text/css" media="screen">
-		html, body { height:100%; background-color: #ffffff;}
-		body { margin:0; padding:0; overflow:hidden; }
-		#flashContent { width:100%; height:100%; }
-		</style>
-	</head>
-	<body>
-		<div id="flashContent">
-			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="1280" height="720" id="MarhaBee" align="middle">
-				<param name="movie" value="MarhaBee.swf" />
-				<param name="quality" value="high" />
-				<param name="bgcolor" value="#ffffff" />
-				<param name="play" value="true" />
-				<param name="loop" value="true" />
-				<param name="wmode" value="window" />
-				<param name="scale" value="showall" />
-				<param name="menu" value="true" />
-				<param name="devicefont" value="false" />
-				<param name="salign" value="" />
-				<param name="allowScriptAccess" value="sameDomain" />
-				<!--[if !IE]>-->
-				<object type="application/x-shockwave-flash" data="MarhaBee.swf" width="1280" height="720">
-					<param name="movie" value="MarhaBee.swf" />
-					<param name="quality" value="high" />
-					<param name="bgcolor" value="#ffffff" />
-					<param name="play" value="true" />
-					<param name="loop" value="true" />
-					<param name="wmode" value="window" />
-					<param name="scale" value="showall" />
-					<param name="menu" value="true" />
-					<param name="devicefont" value="false" />
-					<param name="salign" value="" />
-					<param name="allowScriptAccess" value="sameDomain" />
-				<!--<![endif]-->
-					<a href="http://www.adobe.com/go/getflash">
-						<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
-					</a>
-				<!--[if !IE]>-->
-				</object>
-				<!--<![endif]-->
-			</object>
-		</div>
-	</body>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MarhaBee</title>
+    <style>
+        html, body { 
+            height: 100%; 
+            background-color: #ffffff; 
+            margin: 0; 
+            padding: 0; 
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #ruffle-container { 
+            width: 1280px; 
+            height: 720px; 
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+    <!-- Load Ruffle from the CDN -->
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+<body>
+
+    <!-- This is where your animation will play -->
+    <div id="ruffle-container"></div>
+
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.addEventListener("DOMContentLoaded", () => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            const container = document.getElementById("ruffle-container");
+            
+            container.appendChild(player);
+            
+            // Force Ruffle to load your specific SWF file directly
+            player.load("MarhaBee.swf");
+            
+            player.style.width = "100%";
+            player.style.height = "100%";
+        });
+    </script>
+
+</body>
 </html>
